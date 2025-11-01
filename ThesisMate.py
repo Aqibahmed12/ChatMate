@@ -1,8 +1,11 @@
 import streamlit as st
 import google.generativeai as genai
 
+api_key = st.secrets["api_key"]
+
+
 # 🔑 Configure your Gemini API key
-genai.configure(api_key="AIzaSyBeLJR4ecE3SUByDS2WCza_m1FOHZJXIhE")
+genai.configure(api_key=api_key)
 
 # 🎨 Page setup
 st.set_page_config(page_title="ChatMate", page_icon="🤖", layout="centered")
