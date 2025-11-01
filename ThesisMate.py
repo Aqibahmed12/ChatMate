@@ -3,11 +3,9 @@ import google.generativeai as genai
 
 api_key = st.secrets["api_key"]
 
-
-# 🔑 Configure your Gemini API key
 genai.configure(api_key=api_key)
 
-# 🎨 Page setup
+#Page setup
 st.set_page_config(page_title="ChatMate", page_icon="🤖", layout="centered")
 
 st.markdown("""
@@ -16,11 +14,11 @@ st.markdown("""
     <hr>
 """, unsafe_allow_html=True)
 
-# Initialize chat history
+#Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Sidebar for info
+#Sidebar for info
 with st.sidebar:
     st.title("💡 About")
     st.write("""
@@ -39,7 +37,7 @@ if user_input:
     response = model.generate_content(user_input)
     st.session_state.messages.append({"role": "assistant", "text": response.text})
 
-# Display chat
+#Display chat
 for msg in st.session_state.messages:
     if msg["role"] == "user":
         st.chat_message("user").markdown(f"**You:** {msg['text']}")
