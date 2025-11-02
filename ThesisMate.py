@@ -5,7 +5,6 @@ api_key = st.secrets["api_key"]
 
 genai.configure(api_key=api_key)
 
-#Page setup
 st.set_page_config(page_title="ChatMate", page_icon="🤖", layout="centered")
 
 st.markdown("""
